@@ -17,7 +17,7 @@ app.get('/',(req,res)=>{
 
 //Creating Intent
   app.post('/api/v1/create_intent', async(req, res) => {
-    let amount=req.body.amount;
+    let money=req.body.money;
     let currency=req.body.currency;
     let paymentMethodId=req.body.pay_method
     try {
