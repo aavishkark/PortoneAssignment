@@ -40,8 +40,8 @@ app.get('/',(req,res)=>{
       const payment_id = req.params.id
       const paymentIntent = await stripe.paymentIntents.capture(payment_id);
       res.status(200).send({ msg: paymentIntent });
-    } catch (error) {
-      res.status(400).send({ error: error.message });
+    } catch (err) {
+      res.status(400).send({ error: err.message });
     }
   });
 
@@ -55,8 +55,8 @@ app.get('/',(req,res)=>{
         payment_intent: payment_id,
       });
       res.status(200).send({ msg: paymentIntent });
-    } catch (error) {
-      res.status(400).send({ error: error.message });
+    } catch (err) {
+      res.status(400).send({ error: err.message });
     }
   });
 
@@ -67,8 +67,8 @@ app.get('/',(req,res)=>{
     try {
       const intents = await stripe.paymentIntents.list();
       res.status(200).send({ msg: intents });
-    } catch (error) {
-      res.status(400).send({ error: error.message });
+    } catch (err) {
+      res.status(400).send({ error: err.message });
     }
   });
 
