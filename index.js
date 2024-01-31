@@ -23,7 +23,6 @@ app.get('/',(req,res)=>{
       const paymentIntent = await stripe.paymentIntents.create({
         amount: money,
         currency: currency,
-        status:"requires_capture"
       });
       res.status(200).send({ msg: paymentIntent });
     } catch (error) {
