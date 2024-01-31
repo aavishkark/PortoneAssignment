@@ -19,12 +19,10 @@ app.get('/',(req,res)=>{
   app.post('/api/v1/create_intent', async(req, res) => {
     let money=req.body.money;
     let currency=req.body.currency;
-    let paymentMethodId=req.body.pay_method
     try {
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: amount,
+        amount: money,
         currency: currency,
-        payment_method: paymentMethodId
       });
       res.status(200).send({ msg: paymentIntent });
     } catch (error) {
